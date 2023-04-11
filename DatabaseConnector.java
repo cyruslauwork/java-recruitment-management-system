@@ -64,8 +64,8 @@ public class DatabaseConnector {
 	                        			+ "id INT PRIMARY KEY, "
 	                        			+ "apply_date DATE, "
 										+ "candidate_id INT, "
-	                        			+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id),"
 										+ "job_id INT,"
+										+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id),"
 	                        			+ "FOREIGN KEY (job_id) REFERENCES JobDescriptions(id))";
 	                        	break;
 	                        default:
