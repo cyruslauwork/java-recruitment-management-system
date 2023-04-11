@@ -3,6 +3,11 @@ package rms;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+//LAU Ka Pui s226064
+//Poon Tsz Ying s198137
+//KWOK Yee Man	s216748
+//YOUR_NAME YOUR_SID
+
 public class RecruitmentManagementSystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
