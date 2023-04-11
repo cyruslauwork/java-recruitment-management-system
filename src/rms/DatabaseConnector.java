@@ -58,6 +58,13 @@ public class DatabaseConnector {
 	                        			+ "post_date DATE, "
 	                        			+ "FOREIGN KEY (employer_id) REFERENCES Employers(id))";
 	                            break;
+	                        case "Applications":
+	                        	sql = "CREATE TABLE JobDescriptions ("
+	                        			+ "id INT PRIMARY KEY, "
+	                        			+ "apply_date DATE, "
+	                        			+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id))"
+	                        			+ "FOREIGN KEY (job_id) REFERENCES JobDescriptions(id))";
+	                        	break;
 	                        default:
 	                            System.out.println("Invalid table name.");
 	                            break;
