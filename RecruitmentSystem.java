@@ -115,39 +115,8 @@ public class RecruitmentSystem {
 
 		}
 	}
-	
-	public void countMatchingJobDescriptions(String searchCriterion) throws SQLException {
-        try {
-        	String sql = "SELECT count(*) count FROM Job_Descriptions WHERE job_title LIKE '%" + searchCriterion + "%'";
-	        Connection conn = DatabaseConnector.getConnection();
-	        Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery(sql);
-	        while (rs.next()) {
-	            System.out.println("Number of job descriptions that match: " + rs.getString("count"));
-	        }
-	        conn.close();
-	    } catch (SQLException e) {
-	    }
-	}
 
-	public void displayJobsMatchingResults() throws SQLException {
-		try {
-			String sql = "SELECT Candidates.name, Candidates.skills, JobDescriptions.job_title FROM Candidates JOIN JobDescriptions ON"
-					+ "Candidates.skills LIKE CONCAT('%', JobDescriptions.job_title, '%')"
-					+ "OR Candidates.skills LIKE CONCAT('%', JobDescriptions.job_description, '%')"
-					+ "OR Candidates.skills LIKE CONCAT('%', JobDescriptions.job_responsibilities, '%')"
-					+ "OR Candidates.skills LIKE CONCAT('%', JobDescriptions.job_requirements, '%')";
-			Connection conn = DatabaseConnector.getConnection();
-			Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				System.out.println(rs.getString("Candidates.name") + " | " + rs.getString("Candidates.skills") + " | "
-						+ rs.getString("JobDescriptions.job_title"));
-			}
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void getMatchingJobs() throws SQLException {
 	}
 
 }
