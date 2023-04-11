@@ -90,8 +90,13 @@ public class RecruitmentManagementSystem {
                 case 5:
                     System.out.println("Enter search criterion:");
                     String searchCriterion = scanner.nextLine();
-                    //nt count = recruitmentSystem.countMatchingJobDescriptions(searchCriterion);
-                    //System.out.println("Number of job descriptions that match: " + count);
+				try {
+					recruitmentSystem.countMatchingJobDescriptions(searchCriterion);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+                    
                     break;
                 case 6:
                     System.out.println("Enter applicant ID:");

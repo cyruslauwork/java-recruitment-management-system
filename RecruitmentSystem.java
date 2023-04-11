@@ -118,5 +118,19 @@ public class RecruitmentSystem {
 
 	public void getMatchingJobs() throws SQLException {
 	}
+	public void countMatchingJobDescriptions(String searchCriterion) throws SQLException {
+        try {
+        	String sql = "SELECT count(*) count FROM Job_Descriptions WHERE job_title LIKE '%" + searchCriterion + "%'";
+	        Connection conn = DatabaseConnector.getConnection();
+	        Statement stmt = conn.createStatement();
+	        ResultSet rs = stmt.executeQuery(sql);
+	        while (rs.next()) {
+	            System.out.println("Number of job descriptions that match: " + rs.getString("count")
+	            		);
+	        }
+	        conn.close();
+	    } catch (SQLException e) {
+	    }
+	}
 
 }
