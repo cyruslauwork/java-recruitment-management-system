@@ -1,7 +1,7 @@
 package rms;
 
-import java.sql.SQLException;
-import java.util.Scanner;
+import java.sql.*;
+import java.util.*;
 
 //LAU Ka Pui s226064
 //Poon Tsz Ying s198137
