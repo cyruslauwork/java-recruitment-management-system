@@ -2,7 +2,7 @@ package rms;
 import java.sql.*;
 import java.util.*;
 
-//test
+
 public class DatabaseConnector {
 	private static final String DATABASE_URL = "jdbc:mysql://localhost/recruitment_db";
 	   private static final String DATABASE_USERNAME = "username";
