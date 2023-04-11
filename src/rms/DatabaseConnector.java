@@ -33,7 +33,7 @@ public class DatabaseConnector {
 	                                    "address VARCHAR(255)," +
 	                                    "education VARCHAR(255)," +
 	                                    "work_experience VARCHAR(255)," +
-	                                    "skills VARCHAR(255)," +
+	                                    "skills VARCHAR(255)" +
 	                                    ")";
 	                            break;
 	                        case "Employers":
