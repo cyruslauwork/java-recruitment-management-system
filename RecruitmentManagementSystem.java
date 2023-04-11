@@ -18,6 +18,7 @@ public class RecruitmentManagementSystem {
 		boolean quit = false;
 
 		while (!quit) {
+			System.out.println();
 			System.out.println("Choose an option:");
 			System.out.println("1 - Display all registered job applicants / candidates");
 			System.out.println("2 - Display all registered employers");
@@ -28,6 +29,7 @@ public class RecruitmentManagementSystem {
 			System.out.println("7 - Adjust the system date");
 			System.out.println("8 - Match candidates to open requisitions");
 			System.out.println("9 - Quit");
+			System.out.println();
 
 			int option = scanner.nextInt();
 			scanner.nextLine(); // consume the newline character

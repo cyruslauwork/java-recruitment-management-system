@@ -41,7 +41,7 @@ public class RecruitmentSystem {
 		try {
 			Connection conn = DatabaseConnector.getConnection();
 			PreparedStatement pstmt = conn
-					.prepareStatement("SELECT * FROM job_descriptions WHERE post_date BETWEEN ? AND ?");
+					.prepareStatement("SELECT * FROM JobDescriptions WHERE post_date BETWEEN ? AND ?");
 			pstmt.setDate(1, startDate);
 			pstmt.setDate(2, endDate);
 			ResultSet rs = pstmt.executeQuery();
