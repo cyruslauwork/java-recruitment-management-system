@@ -7,7 +7,7 @@ public class DatabaseConnector {
 	private static final String DATABASE_URL = "jdbc:mysql://localhost/recruitment_db";
 	   private static final String DATABASE_USERNAME = "username";
 	   private static final String DATABASE_PASSWORD = "password";
-	   private static final List<String> tableNames = Arrays.asList("Candidates", "Employers", "JobDescriptions", "Applications");
+	   private static final List<String> tableNames = Arrays.asList("Candidates", "Employers", "JobDescriptions");
 	   
 	   public static Connection getConnection() throws SQLException {
 	      return DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
@@ -59,15 +59,15 @@ public class DatabaseConnector {
 	                        			+ "employer_id INT,"
 	                        			+ "FOREIGN KEY (employer_id) REFERENCES Employers(id))";
 	                            break;
-	                        case "Applications":
-	                        	sql = "CREATE TABLE Applications ("
-	                        			+ "id INT PRIMARY KEY, "
-	                        			+ "apply_date DATE, "
-										+ "candidate_id INT, "
-	                        			+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id),"
-										+ "job_id INT,"
-	                        			+ "FOREIGN KEY (job_id) REFERENCES JobDescriptions(id))";
-	                        	break;
+//	                        case "Applications":
+//	                        	sql = "CREATE TABLE JobDescriptions ("
+//	                        			+ "id INT PRIMARY KEY, "
+//	                        			+ "apply_date DATE, "
+//										+ "candidate_id INT,"
+//	                        			+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id))"
+//										+ "job_id INT,"
+//	                        			+ "FOREIGN KEY (job_id) REFERENCES JobDescriptions(id))";
+//	                        	break;
 	                        default:
 	                            System.out.println("Invalid table name.");
 	                            break;
