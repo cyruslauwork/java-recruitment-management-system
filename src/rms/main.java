@@ -15,7 +15,7 @@ import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 
 // LAU Ka Pui s226064
-// Poon Tsz Ying
+// Poon Tsz Ying s198137
 // YOUR_NAME YOUR_SID
 // YOUR_NAME YOUR_SID
 
