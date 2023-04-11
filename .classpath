@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="C:/Users/ymkwo/OneDrive - kymkle/桌面/pj/java-recruitment-management-system/mariadb-java-client-1.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ymkwo/OneDrive - kymkle/桌面/pj/java-recruitment-management-system/mysql-connector-java-8.0.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ymkwo/OneDrive - kymkle/桌面/pj/java-recruitment-management-system/rs2xml.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
