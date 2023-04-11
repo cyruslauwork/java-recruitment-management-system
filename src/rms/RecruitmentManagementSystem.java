@@ -91,7 +91,14 @@ public class RecruitmentManagementSystem {
                 case 6:
                     System.out.println("Enter applicant ID:");
                     int applicantId = scanner.nextInt();
-                    //recruitmentSystem.getJobApplicationHistory();
+				try {
+					recruitmentSystem.getJobApplicationHistory(String.valueOf(applicantId));
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                     break;
                 case 7:
                     System.out.println("Enter new system date (yyyy-MM-dd):");

@@ -92,9 +92,29 @@ public class RecruitmentSystem {
 	        return 0;
 	    }
 	}
-	public void getJobApplicationHistory() throws SQLException {
+	public void getJobApplicationHistory(String applicantId) throws SQLException {
 		try{
 			
+			Connection conn = DatabaseConnector.getConnection();
+	        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM candidate WHERE id = ? ");
+	        pstmt.setString(1,applicantId);
+	        
+	        ResultSet rs = pstmt.executeQuery();
+	        while (rs.next()) {
+	            System.out.println(rs.getString("name") + " | " 
+	            		+ rs.getString("email") + " | " 
+	            		+ rs.getString("phone") + " | " 
+	            		+ rs.getString("address") + " | " 
+	    	            + rs.getString("education") + " | " 
+	    	    	    + rs.getString("work_experience") + " | " 
+	    	    	    + rs.getString("skills")
+	            		);
+	        }
+	        conn.close();
+	        
+	        
+	        
+	        
 		}
 		catch(Exception e) {
 			
