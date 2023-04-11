@@ -16,7 +16,7 @@ import net.proteanit.sql.DbUtils;
 
 // LAU Ka Pui s226064
 // Poon Tsz Ying s198137
-// YOUR_NAME YOUR_SID
+// KWOK Yee Man	s216748
 // YOUR_NAME YOUR_SID
 
 public class main {
