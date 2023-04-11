@@ -33,7 +33,7 @@ public class DatabaseConnector {
 	                                    "address VARCHAR(255)," +
 	                                    "education VARCHAR(255)," +
 	                                    "work_experience VARCHAR(255)," +
-	                                    "skills VARCHAR(255)," +
+	                                    "skills VARCHAR(255)" +
 	                                    ")";
 	                            break;
 	                        case "Employers":
@@ -56,8 +56,18 @@ public class DatabaseConnector {
 	                        			+ "job_requirements TEXT, "
 	                        			+ "salary DECIMAL(10,2),"
 	                        			+ "post_date DATE, "
+	                        			+ "employer_id INT,"
 	                        			+ "FOREIGN KEY (employer_id) REFERENCES Employers(id))";
 	                            break;
+//	                        case "Applications":
+//	                        	sql = "CREATE TABLE JobDescriptions ("
+//	                        			+ "id INT PRIMARY KEY, "
+//	                        			+ "apply_date DATE, "
+//										+ "candidate_id INT,"
+//	                        			+ "FOREIGN KEY (candidate_id) REFERENCES Candidates(id))"
+//										+ "job_id INT,"
+//	                        			+ "FOREIGN KEY (job_id) REFERENCES JobDescriptions(id))";
+//	                        	break;
 	                        default:
 	                            System.out.println("Invalid table name.");
 	                            break;

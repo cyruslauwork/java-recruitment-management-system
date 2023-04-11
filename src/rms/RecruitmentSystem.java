@@ -96,18 +96,14 @@ public class RecruitmentSystem {
 		try{
 			
 			Connection conn = DatabaseConnector.getConnection();
-	        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM candidate WHERE id = ? ");
+	        PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM applications WHERE candidate_id = ? ");
 	        pstmt.setString(1,applicantId);
 	        
 	        ResultSet rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	            System.out.println(rs.getString("name") + " | " 
-	            		+ rs.getString("email") + " | " 
-	            		+ rs.getString("phone") + " | " 
-	            		+ rs.getString("address") + " | " 
-	    	            + rs.getString("education") + " | " 
-	    	    	    + rs.getString("work_experience") + " | " 
-	    	    	    + rs.getString("skills")
+	            System.out.println(rs.getDate("apply_date") + " | " 
+	            		+ rs.getString("candidate_id") + " | " 
+	            		+ rs.getString("job_id")
 	            		);
 	        }
 	        conn.close();
