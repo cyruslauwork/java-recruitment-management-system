@@ -2,13 +2,15 @@ package rms;
 
 import java.sql.*;
 import java.sql.Date;
-import java.util.*;
+//import java.util.*;
 
 public class RecruitmentSystem {
 	String case1 = "";
 	String case2 = "";
 	String case3 = "";
 	String case5 = "";
+	String case6 = "";
+	String case8 = "";
 	public void displayAllCandidates() {
 		try {
 			Connection conn = DatabaseConnector.getConnection();
@@ -18,9 +20,15 @@ public class RecruitmentSystem {
 				System.out.println(rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
 						+ " | " + rs.getString("address") + " | " + rs.getString("education") + " | "
 						+ rs.getString("work_experience") + " | " + rs.getString("skills"));
-				case1 = case1 + rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
-				+ " | " + rs.getString("address") + " | " + rs.getString("education") + " | "
-				+ rs.getString("work_experience") + " | " + rs.getString("skills")+"\n";
+				case1 = case1 + 						
+						"Name: "+ rs.getString("name") +"\n"+ 
+						"email: "+rs.getString("email") +"\n"+
+						"phone: "+ rs.getString("phone") +"\n"+
+						"address: "+ rs.getString("address") +"\n"+
+						"education: "+ rs.getString("education") +"\n"+
+						"Work Experience: "+ rs.getString("work_experience") +"\n"+
+						"skills: "+ rs.getString("skills") +"\n"+
+						"\n";
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -37,9 +45,17 @@ public class RecruitmentSystem {
 				System.out.println(rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
 						+ " | " + rs.getString("address") + " | " + rs.getString("description") + " | "
 						+ rs.getString("industry"));
-				case2 = case2 + rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
-				+ " | " + rs.getString("address") + " | " + rs.getString("description") + " | "
-				+ rs.getString("industry")+"\n";
+				case2 = case2 + 						
+						"Name: "+ rs.getString("name") +"\n"+ 
+						"email: "+rs.getString("email") +"\n"+
+						"phone: "+ rs.getString("phone") +"\n"+
+						"address: "+ rs.getString("address") +"\n"+
+						"Description: "+ rs.getString("description") +"\n"+
+						"Industry: "+ rs.getString("industry") +"\n"+
+						"\n";
+						
+
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -60,9 +76,14 @@ public class RecruitmentSystem {
 				System.out.println(rs.getString("job_title") + " | " + rs.getString("job_description") + " | "
 						+ rs.getString("job_responsibilities") + " | " + rs.getString("job_requirements") + " | "
 						+ rs.getString("salary") + " | " + rs.getString("post_date"));
-				case3 = case3 + rs.getString("job_title") + " | " + rs.getString("job_description") + " | "
-						+ rs.getString("job_responsibilities") + " | " + rs.getString("job_requirements") + " | "
-						+ rs.getString("salary") + " | " + rs.getString("post_date")+"\n";
+				case3 = case3 + 						
+						"Job Title: "+ rs.getString("job_title") +"\n"+ 
+						"Job Description: "+rs.getString("job_description") +"\n"+
+						"Job Responsibilities: "+ rs.getString("job_responsibilities") +"\n"+
+						"Job_requirements: "+ rs.getString("job_requirements") +"\n"+
+						"Salary: "+ rs.getString("salary") +"\n"+
+						"Post Date: "+ rs.getString("post_date") +"\n"+
+						"\n";				
 				
 			}
 			conn.close();
@@ -112,6 +133,8 @@ public class RecruitmentSystem {
 			while (rs.next()) {
 				System.out.println(rs.getDate("apply_date") + " | " + rs.getString("candidate_id") + " | "
 						+ rs.getString("job_id"));
+				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("candidate_id") + " | "
+						+ rs.getString("job_id")+"\n";
 			}
 			conn.close();
 
@@ -159,6 +182,8 @@ public class RecruitmentSystem {
 			while (rs.next()) {
 				System.out.println(rs.getString("Candidates.name") + " | " + rs.getString("Candidates.skills") + " | "
 						+ rs.getString("JobDescriptions.job_title"));
+				case8 = case8 + rs.getString("Candidates.name") + " | " + rs.getString("Candidates.skills") + " | "
+						+ rs.getString("JobDescriptions.job_title") + "\n";
 			}
 			conn.close();
 		} catch (SQLException e) {
