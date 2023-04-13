@@ -69,7 +69,7 @@ public class main {
 		textArea.setTabSize(12);
 		scrollPane.setViewportView(textArea);
 //case 1		
-		JButton btnCase1 = new JButton("Case1");
+		JButton btnCase1 = new JButton("1 - Display all registered job applicants / candidates");
 		btnCase1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -78,10 +78,10 @@ public class main {
 				rms.case1 = "";
 			}
 		});
-		btnCase1.setBounds(10, 65, 87, 23);
+		btnCase1.setBounds(10, 27, 274, 23);
 		frame.getContentPane().add(btnCase1);
 //case2		
-		JButton btnCase2 = new JButton("Case2");
+		JButton btnCase2 = new JButton("2 - Display all registered employers");
 		btnCase2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -90,30 +90,24 @@ public class main {
 				rms.case2 = "";
 			}
 		});
-		btnCase2.setBounds(10, 98, 87, 23);
+		btnCase2.setBounds(10, 60, 274, 23);
 		frame.getContentPane().add(btnCase2);
 //case3		
 		JLabel lblNewLabel = new JLabel(" Start Date (yyyy-MM-dd)");
-		lblNewLabel.setBounds(20, 164, 173, 15);
+		lblNewLabel.setBounds(20, 143, 173, 15);
 		frame.getContentPane().add(lblNewLabel);
 		lblNewLabel.setVisible(false);
 		
 		JLabel lblNewLabel2 = new JLabel(" End Date (yyyy-MM-dd)");
-		lblNewLabel2.setBounds(20, 220, 173, 15);
+		lblNewLabel2.setBounds(20, 192, 173, 15);
 		frame.getContentPane().add(lblNewLabel2);
 		lblNewLabel2.setVisible(false);
 		
 		start = new JTextField();
-		start.setBounds(10, 189, 206, 21);
+		start.setBounds(10, 161, 206, 21);
 		frame.getContentPane().add(start);
 		start.setColumns(10);
 		start.setVisible(false);
-		
-		end = new JTextField();
-		end.setColumns(10);
-		end.setBounds(10, 245, 206, 21);
-		frame.getContentPane().add(end);
-		end.setVisible(false);
 		
 		JButton btnGo4 = new JButton("Go");
 		btnGo4.addActionListener(new ActionListener() {
@@ -124,13 +118,20 @@ public class main {
 			rms.case3 = "";
 			}
 		});
-		btnGo4.setBounds(214, 244, 59, 23);
+		btnGo4.setBounds(214, 205, 70, 23);
 		frame.getContentPane().add(btnGo4);
 		btnGo4.setVisible(false);
 		
+		end = new JTextField();
+		end.setColumns(10);
+		end.setBounds(10, 206, 206, 21);
+		frame.getContentPane().add(end);
+		end.setVisible(false);
 		
 		
-		JButton btnCase3 = new JButton("Case3");
+		
+		JButton btnCase3 = new JButton("3 - Display all job descriptions in the system within a specific date range");
+		btnCase3.setText("<html><center>"+"3 - Display all job descriptions in the system"+"<br>"+" within a specific date range"+"</center></html>");
 		btnCase3.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -142,19 +143,20 @@ public class main {
 				
 			}
 		});
-		btnCase3.setBounds(10, 131, 87, 23);
+		btnCase3.setBounds(10, 93, 274, 48);
 		frame.getContentPane().add(btnCase3);
 		
 
 //case4		
-		JButton btnCase4 = new JButton("Case4");
+		JButton btnCase4 = new JButton("4 - Post a job description in the system (by employer)");
+		btnCase4.setText("<html><center>"+"4 - Post a job description in the system "+"<br>"+"(by employer)"+"</center></html>");
 		btnCase4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AddNewJD AddNewJD = new AddNewJD();
 				AddNewJD.SignUpForm();
 			}
 		});
-		btnCase4.setBounds(10, 276, 87, 23);
+		btnCase4.setBounds(10, 238, 274, 40);
 		frame.getContentPane().add(btnCase4);
 		
 
@@ -162,12 +164,12 @@ public class main {
 		
 		case5_key = new JTextField();
 		case5_key.setColumns(10);
-		case5_key.setBounds(10, 342, 206, 21);
+		case5_key.setBounds(10, 360, 206, 21);
 		frame.getContentPane().add(case5_key);
 		case5_key.setVisible(false);
 		
 		JLabel lblSearchCriterion = new JLabel("search criterion:");
-		lblSearchCriterion.setBounds(100, 313, 173, 15);
+		lblSearchCriterion.setBounds(20, 346, 173, 15);
 		frame.getContentPane().add(lblSearchCriterion);
 		lblSearchCriterion.setVisible(false);
 		
@@ -184,11 +186,12 @@ public class main {
 				rms.case5 = "";
 			}
 		});
-		btnGo.setBounds(214, 341, 59, 23);
+		btnGo.setBounds(214, 359, 70, 23);
 		frame.getContentPane().add(btnGo);
 		btnGo.setVisible(false);
 		
-		JButton btnCase5 = new JButton("Case5");
+		JButton btnCase5 = new JButton("5 - Count the number of job descriptions that match a specific search criterion");
+		btnCase5.setText("<html><center>"+"5 - Count the number of job descriptions that"+"<br>"+" match a specific search criterion"+"</center></html>");
 		btnCase5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -198,7 +201,7 @@ public class main {
 
 			}
 		});
-		btnCase5.setBounds(10, 309, 87, 23);
+		btnCase5.setBounds(10, 288, 274, 48);
 		frame.getContentPane().add(btnCase5);
 		
 
@@ -206,12 +209,12 @@ public class main {
 //case6 	
 		case6key = new JTextField();
 		case6key.setColumns(10);
-		case6key.setBounds(10, 402, 206, 21);
+		case6key.setBounds(10, 459, 206, 21);
 		frame.getContentPane().add(case6key);
 		case6key.setVisible(false);
 				
 		JLabel lblSearchCriterion2 = new JLabel("Applicant ID:");
-		lblSearchCriterion2.setBounds(100, 377, 93, 15);
+		lblSearchCriterion2.setBounds(10, 445, 93, 15);
 		frame.getContentPane().add(lblSearchCriterion2);
 		lblSearchCriterion2.setVisible(false);
 		
@@ -228,11 +231,12 @@ public class main {
 				rms.case5 = "";
 			}
 		});
-		btnGo2.setBounds(214, 401, 59, 23);
+		btnGo2.setBounds(214, 458, 70, 23);
 		frame.getContentPane().add(btnGo2);
 		btnGo2.setVisible(false);
 		
-		JButton btnCase6 = new JButton("Case6");
+		JButton btnCase6 = new JButton("6 - Display the job application history of an applicant");
+		btnCase6.setText("<html><center>"+"6 - Display the job application history"+"<br>"+" of an applicant"+"</center></html>");
 		btnCase6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -243,14 +247,14 @@ public class main {
 				
 			}
 		});
-		btnCase6.setBounds(10, 373, 87, 23);
+		btnCase6.setBounds(10, 391, 274, 40);
 		frame.getContentPane().add(btnCase6);
 		
 		
 //case7 		
 		
 		case7key = new JTextField();
-		case7key.setBounds(10, 491, 206, 21);
+		case7key.setBounds(10, 548, 206, 21);
 		frame.getContentPane().add(case7key);
 		case7key.setColumns(10);
 		case7key.setVisible(false);;
@@ -261,16 +265,16 @@ public class main {
 				textArea.setText("Success!");
 			}
 		});
-		btnGo3.setBounds(214, 490, 59, 23);
+		btnGo3.setBounds(214, 547, 70, 23);
 		frame.getContentPane().add(btnGo3);
 		btnGo3.setVisible(false);
 		
 		JLabel lblNewLabel_1 = new JLabel("New System Date (yyyy-MM-dd):");
-		lblNewLabel_1.setBounds(20, 466, 264, 15);
+		lblNewLabel_1.setBounds(10, 523, 264, 15);
 		frame.getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1.setVisible(false);
 		
-		JButton btnCase7 = new JButton("Case7");
+		JButton btnCase7 = new JButton("7 - Adjust the system date");
 		btnCase7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -280,11 +284,23 @@ public class main {
 				
 			}
 		});
-		btnCase7.setBounds(10, 433, 87, 23);
+		btnCase7.setBounds(10, 490, 274, 23);
 		frame.getContentPane().add(btnCase7);
 		
 
 //case8
+		JButton btnCase8 = new JButton("8 - Match candidates to open requisitions");
+		btnCase8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				rms.displayJobsMatchingResults();
+				textArea.setText(rms.case8);
+				rms.case2 = "";
+				
+			}
+		});
+		btnCase8.setBounds(10, 579, 274, 23);
+		frame.getContentPane().add(btnCase8);
 		
 		
 //case9
@@ -297,6 +313,7 @@ public class main {
 		btnCase9.setBounds(10, 709, 87, 23);
 		frame.getContentPane().add(btnCase9);
 		
+
 		
 		
 	}
