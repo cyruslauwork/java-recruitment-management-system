@@ -48,6 +48,7 @@ public class RecruitmentManagementSystem {
 				String endDate = scanner.nextLine();
 				recruitmentSystem.displayJobDescriptionsInRange(java.sql.Date.valueOf(startDate),
 						java.sql.Date.valueOf(endDate));
+				
 				break;
 			case 4:
 				JobDescription jD = new JobDescription();

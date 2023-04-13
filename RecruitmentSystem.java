@@ -5,6 +5,10 @@ import java.sql.Date;
 import java.util.*;
 
 public class RecruitmentSystem {
+	String case1 = "";
+	String case2 = "";
+	String case3 = "";
+	String case5 = "";
 	public void displayAllCandidates() {
 		try {
 			Connection conn = DatabaseConnector.getConnection();
@@ -14,6 +18,9 @@ public class RecruitmentSystem {
 				System.out.println(rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
 						+ " | " + rs.getString("address") + " | " + rs.getString("education") + " | "
 						+ rs.getString("work_experience") + " | " + rs.getString("skills"));
+				case1 = case1 + rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
+				+ " | " + rs.getString("address") + " | " + rs.getString("education") + " | "
+				+ rs.getString("work_experience") + " | " + rs.getString("skills")+"\n";
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -30,6 +37,9 @@ public class RecruitmentSystem {
 				System.out.println(rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
 						+ " | " + rs.getString("address") + " | " + rs.getString("description") + " | "
 						+ rs.getString("industry"));
+				case2 = case2 + rs.getString("name") + " | " + rs.getString("email") + " | " + rs.getString("phone")
+				+ " | " + rs.getString("address") + " | " + rs.getString("description") + " | "
+				+ rs.getString("industry")+"\n";
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -44,11 +54,16 @@ public class RecruitmentSystem {
 					.prepareStatement("SELECT * FROM JobDescriptions WHERE post_date BETWEEN ? AND ?");
 			pstmt.setDate(1, startDate);
 			pstmt.setDate(2, endDate);
+			
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				System.out.println(rs.getString("job_title") + " | " + rs.getString("job_description") + " | "
 						+ rs.getString("job_responsibilities") + " | " + rs.getString("job_requirements") + " | "
 						+ rs.getString("salary") + " | " + rs.getString("post_date"));
+				case3 = case3 + rs.getString("job_title") + " | " + rs.getString("job_description") + " | "
+						+ rs.getString("job_responsibilities") + " | " + rs.getString("job_requirements") + " | "
+						+ rs.getString("salary") + " | " + rs.getString("post_date")+"\n";
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
@@ -60,7 +75,7 @@ public class RecruitmentSystem {
 		try {
 			Connection conn = DatabaseConnector.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(
-					"INSERT INTO job_descriptions (job_title, job_description, job_responsibilities, job_requirements, salary, post_date) VALUES (?, ?, ?, ?, ?, ?)");
+					"INSERT INTO jobdescriptions (job_title, job_description, job_responsibilities, job_requirements, salary, post_date) VALUES (?, ?, ?, ?, ?, ?)");
 			pstmt.setString(1, jobDescription.getJobTitle());
 			pstmt.setString(2, jobDescription.getJobDescription());
 			pstmt.setString(3, jobDescription.getJobResponsibilities());
@@ -75,7 +90,7 @@ public class RecruitmentSystem {
 	}
 
 	public int countJobDescriptions(String keyword) throws SQLException {
-		String sql = "SELECT COUNT(*) FROM job_descriptions WHERE description LIKE '%" + keyword + "%'";
+		String sql = "SELECT COUNT(*) FROM jobdescriptions WHERE description LIKE '%" + keyword + "%'";
 		try (Connection conn = DatabaseConnector.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
@@ -118,12 +133,13 @@ public class RecruitmentSystem {
 	
 	public void countMatchingJobDescriptions(String searchCriterion) throws SQLException {
         try {
-        	String sql = "SELECT count(*) count FROM Job_Descriptions WHERE job_title LIKE '%" + searchCriterion + "%'";
+        	String sql = "SELECT count(*) count FROM JobDescriptions WHERE job_title LIKE '%" + searchCriterion + "%'";
 	        Connection conn = DatabaseConnector.getConnection();
 	        Statement stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(sql);
 	        while (rs.next()) {
 	            System.out.println("Number of job descriptions that match: " + rs.getString("count"));
+	            case5 = "Number of job descriptions that match: " + rs.getString("count");
 	        }
 	        conn.close();
 	    } catch (SQLException e) {
