@@ -55,5 +55,25 @@ INSERT INTO jobdescriptions VALUES (9," Business Analyst "," Looking for a skil
 INSERT INTO jobdescriptions VALUES (10," UX/UI Designer "," Seeking a talented UX/UI designer to design and develop user interfaces for various platforms "," Develop design concepts and wireframes "," Bachelor's degree in Graphic Design or related field "," 70000 USD "," 2023-04-01 ",5);
 INSERT INTO jobdescriptions VALUES (11," Data Analyst "," Looking for a skilled data analyst to analyze and interpret complex data sets "," Develop data models and visualizations "," Bachelor's degree in Mathematics, Statistics or related field "," 80000 USD "," 2023-03-31 ",1);
 
+INSERT INTO applications VALUES (1," 2023-04-11 ",1,1);
+INSERT INTO applications VALUES (2," 2023-04-10 ",2,1);
+INSERT INTO applications VALUES (3," 2023-04-09 ",3,2);
+INSERT INTO applications VALUES (4," 2023-04-08 ",4,2);
+INSERT INTO applications VALUES (5," 2023-04-07 ",5,3);
+INSERT INTO applications VALUES (6," 2023-04-06 ",6,3);
+INSERT INTO applications VALUES (7," 2023-04-05 ",7,4);
+INSERT INTO applications VALUES (8," 2023-04-04 ",8,4);
+INSERT INTO applications VALUES (9," 2023-04-03 ",9,5);
+INSERT INTO applications VALUES (10," 2023-04-02 ",10,5);
+INSERT INTO applications VALUES (11," 2023-04-01 ",1,6);
+INSERT INTO applications VALUES (12," 2023-03-31 ",2,6);
+INSERT INTO applications VALUES (13," 2023-03-30 ",3,7);
+INSERT INTO applications VALUES (14," 2023-03-29 ",4,7);
+INSERT INTO applications VALUES (15," 2023-03-28 ",5,8);
+INSERT INTO applications VALUES (16," 2023-03-27 ",6,8);
+INSERT INTO applications VALUES (17," 2023-03-26 ",7,9);
+INSERT INTO applications VALUES (18," 2023-03-25 ",8,9);
+INSERT INTO applications VALUES (19," 2023-03-24 ",9,10);
+INSERT INTO applications VALUES (20," 2023-03-23 ",10,10);
 
 ```
