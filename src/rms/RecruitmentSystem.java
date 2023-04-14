@@ -124,7 +124,7 @@ public class RecruitmentSystem {
 		}
 	}
 
-	public void getJobApplicationHistory(String candidateId) throws SQLException {
+	public void getJobApplicationHistory(String candidateId) throws SQLException {	//Function 6
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
@@ -141,8 +141,9 @@ public class RecruitmentSystem {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
-				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
-						+ rs.getString("job_title")+"\n";
+				case6 = case6 + rs.getDate("apply_date") + " | " 
+								+ rs.getString("name") + " | "
+								+ rs.getString("job_title")+"\n";
 			}
 			conn.close();
 
