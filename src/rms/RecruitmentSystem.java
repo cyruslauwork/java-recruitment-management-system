@@ -124,19 +124,25 @@ public class RecruitmentSystem {
 		}
 	}
 
-	public void getJobApplicationHistory(String applicantId) throws SQLException {
+	public void getJobApplicationHistory(String candidateId) throws SQLException {
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM applications WHERE candidate_id = ? ");
-			pstmt.setString(1, applicantId);
+			PreparedStatement pstmt = conn.prepareStatement("select a.apply_date,c.name,j.job_title "
+					+ "from applications a "
+					+ "inner join candidates c "
+					+ "inner join jobdescriptions j "
+					+ "on a.candidate_id=c.id AND c.id=? "
+					+ "order by a.apply_date desc;");
+			pstmt.setString(1, candidateId);
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				System.out.println(rs.getDate("apply_date") + " | " + rs.getString("candidate_id") + " | "
-						+ rs.getString("job_id"));
-				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("candidate_id") + " | "
-						+ rs.getString("job_id")+"\n";
+				System.out.println(rs.getDate("apply_date") + " | " 
+								+ rs.getString("name") + " | "
+								+ rs.getString("job_title"));
+				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
+						+ rs.getString("job_title")+"\n";
 			}
 			conn.close();
 

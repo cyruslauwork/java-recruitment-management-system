@@ -98,7 +98,7 @@ public class RecruitmentManagementSystem {
 			}
                 break;
 			case 6:
-				System.out.println("Enter applicant ID:");
+				System.out.println("Enter candidate ID:");
 				int applicantId = scanner.nextInt();
 				try {
 					recruitmentSystem.getJobApplicationHistory(String.valueOf(applicantId));
