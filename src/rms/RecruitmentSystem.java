@@ -138,14 +138,13 @@ public class RecruitmentSystem {
 
 			ResultSet rs = pstmt.executeQuery();
 			
-			case6 += rs.getString("name")+"\n";
 			
 			while (rs.next()) {
-				System.out.println(rs.getDate("apply_date") + "	 | " 
-								+ rs.getString("name") + "	 | "
+				System.out.println(rs.getDate("apply_date") + " | " 
+								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
-				case6 = case6 + rs.getDate("apply_date") + "	 | " 
-								+ rs.getString("name") + "	 | "
+				case6 = case6 + rs.getDate("apply_date") + " | " 
+								+ rs.getString("name") + " | "
 								+ rs.getString("job_title")+"\n";
 			}
 			System.out.println("***End of record***");
