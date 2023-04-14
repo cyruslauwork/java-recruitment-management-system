@@ -52,40 +52,45 @@ public class RecruitmentManagementSystem {
 				break;
 			case 4:
 				JobDescription jD = new JobDescription();
-				System.out.println("Enter job title:");
-				String jobTitle = scanner.nextLine();
-				System.out.println("Enter job description:");
-				String jobDescription = scanner.nextLine();
-				System.out.println("Enter job Responsibilities:");
-				String jobResponsibilities = scanner.nextLine();
-				System.out.println("Enter job Requirements:");
-				String jobRequirements = scanner.nextLine();
-				System.out.println("Enter job Salary:");
-				String salary = scanner.nextLine();
-				System.out.println("Enter Post date(yyyy-MM-dd):");
-				String postdate = scanner.nextLine();
+
 				boolean flag = false;
 				while (!flag) {
+					System.out.println("Enter job title:");
+					String jobTitle = scanner.nextLine();
+					System.out.println("Enter job description:");
+					String jobDescription = scanner.nextLine();
+					System.out.println("Enter job Responsibilities:");
+					String jobResponsibilities = scanner.nextLine();
+					System.out.println("Enter job Requirements:");
+					String jobRequirements = scanner.nextLine();
+					System.out.println("Enter job Salary:");
+					String salary = scanner.nextLine();
+					System.out.println("Enter Post date(yyyy-MM-dd):");
+					String postdate = scanner.nextLine();
 					System.out.println("Please confirm the following information.");
-					System.out.println("Job title:" + jobTitle + "\nJob description:" + jobDescription
-							+ "\nJob Responsibilities:" + jobResponsibilities + "\nJob Requirements:" + jobRequirements
-							+ "\nJob salary:" + salary + "\nPost Date:" + postdate);
+					System.out.println("Job title:" + jobTitle 
+							+ "\nJob description:" + jobDescription
+							+ "\nJob Responsibilities:" + jobResponsibilities 
+							+ "\nJob Requirements:" + jobRequirements
+							+ "\nJob salary:" + salary 
+							+ "\nPost Date:" + postdate);
 					System.out.println("If confirm, enter (Yes):");
-					if (scanner.next().equals("Yes")) {
+					String confirmInformation = scanner.nextLine();
+					if (confirmInformation.equals("Yes")) {
+						jD.setJobTitle(jobTitle);
+						jD.setJobDescription(jobDescription);
+						jD.setJobResponsibilities(jobResponsibilities);
+						jD.setJobRequirements(jobRequirements);
+						jD.setJobSalary(salary);
+						jD.setPostDate(postdate);
+						recruitmentSystem.postJobDescription(jD);
 						flag = true;
-
 					} else {
 						System.out.println("Please enter again.");
 					}
 				}
 
-				jD.setJobTitle(jobTitle);
-				jD.setJobDescription(jobDescription);
-				jD.setJobResponsibilities(jobResponsibilities);
-				jD.setJobRequirements(jobRequirements);
-				jD.setJobSalary(salary);
-				jD.setPostDate(postdate);
-				recruitmentSystem.postJobDescription(jD);
+
 				break;
 			case 5:
                 System.out.println("Enter search criterion:");
