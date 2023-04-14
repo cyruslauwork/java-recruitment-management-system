@@ -24,7 +24,7 @@ public class RecruitmentSystem {
 						"Name: "+ rs.getString("name") +"\n"+ 
 						"email: "+rs.getString("email") +"\n"+
 						"phone: "+ rs.getString("phone") +"\n"+
-						"address: "+ rs.getString("address") +"\n"+
+						"addres s: "+ rs.getString("address") +"\n"+
 						"education: "+ rs.getString("education") +"\n"+
 						"Work Experience: "+ rs.getString("work_experience") +"\n"+
 						"skills: "+ rs.getString("skills") +"\n"+
@@ -98,13 +98,14 @@ public class RecruitmentSystem {
 		try {
 			Connection conn = DatabaseConnector.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(
-					"INSERT INTO jobdescriptions (job_title, job_description, job_responsibilities, job_requirements, salary, post_date) VALUES (?, ?, ?, ?, ?, ?)");
-			pstmt.setString(1, jobDescription.getJobTitle());
-			pstmt.setString(2, jobDescription.getJobDescription());
-			pstmt.setString(3, jobDescription.getJobResponsibilities());
-			pstmt.setString(4, jobDescription.getJobRequirements());
-			pstmt.setString(5, jobDescription.getJobSalary());
-			pstmt.setDate(6, java.sql.Date.valueOf(jobDescription.getPostDate()));
+					"INSERT INTO jobdescriptions (id, job_title, job_description, job_responsibilities, job_requirements, salary, post_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			pstmt.setInt(1, countJobDescriptions("")+1);
+			pstmt.setString(2, jobDescription.getJobTitle());
+			pstmt.setString(3, jobDescription.getJobDescription());
+			pstmt.setString(4, jobDescription.getJobResponsibilities());
+			pstmt.setString(5, jobDescription.getJobRequirements());
+			pstmt.setString(6, jobDescription.getJobSalary());
+			pstmt.setDate(7, java.sql.Date.valueOf(jobDescription.getPostDate()));
 			pstmt.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -113,7 +114,7 @@ public class RecruitmentSystem {
 	}
 
 	public int countJobDescriptions(String keyword) throws SQLException {
-		String sql = "SELECT COUNT(*) FROM jobdescriptions WHERE description LIKE '%" + keyword + "%'";
+		String sql = "SELECT COUNT(*) FROM JobDescriptions WHERE job_description LIKE '%" + keyword + "%'";
 		try (Connection conn = DatabaseConnector.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
@@ -124,7 +125,7 @@ public class RecruitmentSystem {
 		}
 	}
 
-	public void getJobApplicationHistory(String candidateId) throws SQLException {	//Function 6
+	public void getJobApplicationHistory(String candidateId) throws SQLException {
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
@@ -137,19 +138,13 @@ public class RecruitmentSystem {
 			pstmt.setString(1, candidateId);
 
 			ResultSet rs = pstmt.executeQuery();
-			
-			
 			while (rs.next()) {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
-				case6 = case6 + rs.getDate("apply_date") + " | " 
-								+ rs.getString("name") + " | "
-								+ rs.getString("job_title")+"\n";
+				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
+						+ rs.getString("job_title")+"\n";
 			}
-			System.out.println("***End of record***");
-			case6 = case6 +"***End of record***\n";
-					
 			conn.close();
 
 		} catch (Exception e) {
