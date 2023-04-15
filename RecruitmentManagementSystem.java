@@ -103,10 +103,10 @@ public class RecruitmentManagementSystem {
 			}
                 break;
 			case 6:
-				System.out.println("Enter candidate ID:");
-				int applicantId = scanner.nextInt();
+				System.out.println("Enter candidate ID / Name:");
+				String candidateKey = scanner.nextLine();
 				try {
-					recruitmentSystem.getJobApplicationHistory(String.valueOf(applicantId));
+					recruitmentSystem.getJobApplicationHistory(String.valueOf(candidateKey));
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
