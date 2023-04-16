@@ -129,12 +129,12 @@ public class RecruitmentSystem {
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement("select a.apply_date, c.name, j.job_title "
-					+ "from applications a "
-					+ "inner join candidates c "
-					+ "inner join jobdescriptions j "
-					+ "on a.candidate_id=c.id AND c.id=? "
-					+ "order by a.apply_date desc");
+			PreparedStatement pstmt = conn.prepareStatement("select a.apply_date, c.name, j.job_title"
+					+"      from applications a"
+					+"      left join candidates c on a.candidate_id=c.id"
+					+"      left join jobdescriptions j on j.id = a.job_id"
+					+"     where c.id =?"
+					+"      order by a.apply_date desc");
 			pstmt.setString(1, candidateId);
 
 			ResultSet rs = pstmt.executeQuery();
@@ -142,8 +142,11 @@ public class RecruitmentSystem {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
-				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
-						+ rs.getString("job_title")+"\n";
+				case6 = case6 + 
+						"Application Date: "+rs.getDate("apply_date")+"\n"+ 
+						"Candidate Name: "+ rs.getString("name") +"\n"+
+						"Job Title: "+ rs.getString("job_title") +"\n"+
+						"\n";
 			}
 			conn.close();
 
