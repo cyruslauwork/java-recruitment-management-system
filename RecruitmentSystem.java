@@ -125,48 +125,19 @@ public class RecruitmentSystem {
 		}
 	}
 
-	public void getJobApplicationHistory(String candidateKey) throws SQLException {
+	public void getJobApplicationHistory(String candidateId) throws SQLException {
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
-			boolean isInteger;
-			
-			try {
-				Integer.valueOf(candidateKey);
-				isInteger=true;
-			}catch(Exception e) {
-				isInteger=false;
-			}
-			
-			ResultSet rs;
-			
-			if(isInteger) {
-			//Search by Candidate ID
-			PreparedStatement pstmt = conn.prepareStatement("select a.apply_date,c.name,j.job_title "
+			PreparedStatement pstmt = conn.prepareStatement("select a.apply_date, c.name, j.job_title "
 					+ "from applications a "
 					+ "inner join candidates c "
 					+ "inner join jobdescriptions j "
 					+ "on a.candidate_id=c.id AND c.id=? "
-					+ "order by a.apply_date desc;");
-			pstmt.setString(1, candidateKey);
-			rs = pstmt.executeQuery();
-			
-			}else {
-				
-			//Search by Candidate Name
-			PreparedStatement pstmt2 = conn.prepareStatement("select a.apply_date,c.name,j.job_title "
-					+ "from applications a "
-					+ "inner join candidates c "
-					+ "inner join jobdescriptions j "
-					+ "on a.candidate_id=c.id AND c.name like "+"\"%"+candidateKey+"%\""
-					+ "order by a.apply_date desc;");
-			
-			System.out.println(pstmt2);
-			rs = pstmt2.executeQuery();
-			
-			}
-			
-			
+					+ "order by a.apply_date desc");
+			pstmt.setString(1, candidateId);
+
+			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
@@ -177,6 +148,7 @@ public class RecruitmentSystem {
 			conn.close();
 
 		} catch (Exception e) {
+
 		}
 
 	}
@@ -210,12 +182,12 @@ public class RecruitmentSystem {
 		try {
 			String sql =
 					"SELECT Candidates.name, Candidates.skills, JobDescriptions.job_title, employers.name FROM Candidates inner JOIN JobDescriptions ON "+
-							"(INSTR(JobDescriptions.job_description, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_title, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_responsibilities, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_requirements, Candidates.skills)>0)"+
-							"left join employers on employers .id = JobDescriptions .employer_id "+
-							" order by Candidates.name";
+							"(INSTR(JobDescriptions.job_description, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_title, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_responsibilities, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_requirements, Candidates.skills) > 0) " +
+							"left join Employers on Employers.id = JobDescriptions.employer_id " +
+							"order by Candidates.name";
 			Connection conn = DatabaseConnector.getConnection();
 			Statement stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(sql);
