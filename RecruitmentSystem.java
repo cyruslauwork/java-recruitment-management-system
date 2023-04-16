@@ -168,9 +168,9 @@ public class RecruitmentSystem {
 			case6 = case6 + "---------------------------------------------------------------------------------------------------\n";
 			case6 = case6 + "      Date      |      Name      |      Job applyed for\n";
 			while (rs.next()) {
-//				System.out.println(rs.getDate("apply_date") + " | " 
-//								+ rs.getString("name") + " | "
-//								+ rs.getString("job_title"));
+				System.out.println(rs.getDate("apply_date") + " | " 
+								+ rs.getString("name") + " | "
+								+ rs.getString("job_title"));
 				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
 						+ rs.getString("job_title")+"\n";
 			}
