@@ -212,27 +212,40 @@ public class RecruitmentSystem {
 	    }
 	}
 
-	public void displayJobsMatchingResults() {
+	public void displayJobsMatchingResults() throws SQLException {
 		try {
 			String sql =
-					"SELECT Candidates.name, Candidates.skills, JobDescriptions.job_title, employers.name FROM Candidates inner JOIN JobDescriptions ON "+
+					"SELECT Candidates.name, Candidates.skills, JobDescriptions.job_title, Employers.name as employer FROM Candidates INNER JOIN JobDescriptions ON "+
 							"(INSTR(JobDescriptions.job_description, Candidates.skills) > 0 " +
 							"OR INSTR(JobDescriptions.job_title, Candidates.skills) > 0 " +
 							"OR INSTR(JobDescriptions.job_responsibilities, Candidates.skills) > 0 " +
 							"OR INSTR(JobDescriptions.job_requirements, Candidates.skills) > 0) " +
-							"left join Employers on Employers.id = JobDescriptions.employer_id " +
-							"order by Candidates.name";
+							"INNER JOIN Employers ON Employers.id = JobDescriptions.employer_id " +
+							"ORDER BY Candidates.name";
+										
+//					"SELECT c.name, c.skills, j.job_title, e.name "
+//					+ "FROM Candidates c "
+//					+ "INNER JOIN JobDescriptions j ON "
+//					+ "("
+//					+ "    c.skills LIKE CONCAT('%', j.job_title, '%') OR "
+//					+ "    c.skills LIKE CONCAT('%', j.job_description, '%') OR "
+//					+ "    c.skills LIKE CONCAT('%', j.job_responsibilities, '%') OR "
+//					+ "    c.skills LIKE CONCAT('%', j.job_requirements, '%')"
+//					+ ") "
+//					+ "LEFT JOIN Employers e ON j.employer_id = e.id "
+//					+ "ORDER BY c.name";
+			
 			Connection conn = DatabaseConnector.getConnection();
 			Statement stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				System.out.println(rs.getString("Candidates.name") + " | " + rs.getString("Candidates.skills") + " | "
-						+ rs.getString("JobDescriptions.job_title")+ " | "+ rs.getString("employers.name"));
+				System.out.println(rs.getString("name") + " | " + rs.getString("skills") + " | "
+						+ rs.getString("job_title")+ " | "+ rs.getString("employer"));
 				case8 = case8 + 						
-						"Name:"+ rs.getString("Candidates.name") +"\n"+ 
-						"Skills: "+rs.getString("Candidates.skills") +"\n"+
-						"Job Title: "+ rs.getString("JobDescriptions.job_title") +"\n"+
-						"Company Name "+ rs.getString("employers.name") +"\n"+
+						"Name:"+ rs.getString("name") +"\n"+ 
+						"Skills: "+rs.getString("skills") +"\n"+
+						"Job Title: "+ rs.getString("job_title") +"\n"+
+						"Company Name "+ rs.getString("employer") +"\n"+
 						"\n";
 
 			}
