@@ -129,12 +129,13 @@ public class RecruitmentSystem {
 		try {
 
 			Connection conn = DatabaseConnector.getConnection();
+      
 			boolean isInteger;
 			
 			try {
 				Integer.valueOf(candidateKey);
 				isInteger=true;
-			}catch(Exception e) {
+			} catch(Exception e) {
 				isInteger=false;
 			}
 			
@@ -151,9 +152,9 @@ public class RecruitmentSystem {
 			pstmt.setString(1, candidateKey);
 			rs = pstmt.executeQuery();
 			
-			}else {
+			} else {
 				
-			//Search by Candidate Name
+			// Search by Candidate Name
 			PreparedStatement pstmt2 = conn.prepareStatement("select a.apply_date,c.name,j.job_title "
 					+ "from applications a "
 					+ "inner join candidates c "
@@ -165,7 +166,9 @@ public class RecruitmentSystem {
 			rs = pstmt2.executeQuery();
 			
 			}
+      
 			case6 = case6 + "---------------------------------------------------------------------------------------------------\n";
+      
 			while (rs.next()) {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
@@ -176,6 +179,7 @@ public class RecruitmentSystem {
 						"Job Title:	"+ rs.getString("job_title") +"\n"+
 						"\n";
 			}
+      
 			conn.close();
 
 		} catch (Exception e) {
