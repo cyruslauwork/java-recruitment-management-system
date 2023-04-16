@@ -171,9 +171,9 @@ public class RecruitmentSystem {
 								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
 				case6 = case6 + 
-						"Application Date: "+rs.getDate("apply_date")+"\n"+ 
-						"Candidate Name: "+ rs.getString("name") +"\n"+
-						"Job Title: "+ rs.getString("job_title") +"\n"+
+						"Application Date:	"+rs.getDate("apply_date")+"\n"+ 
+						"Candidate Name:	"+ rs.getString("name") +"\n"+
+						"Job Title:	"+ rs.getString("job_title") +"\n"+
 						"\n";
 			}
 			conn.close();
