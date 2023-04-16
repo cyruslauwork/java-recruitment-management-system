@@ -166,13 +166,15 @@ public class RecruitmentSystem {
 			
 			}
 			case6 = case6 + "---------------------------------------------------------------------------------------------------\n";
-			case6 = case6 + "      Date      |      Name      |      Job applyed for\n";
 			while (rs.next()) {
 				System.out.println(rs.getDate("apply_date") + " | " 
 								+ rs.getString("name") + " | "
 								+ rs.getString("job_title"));
-				case6 = case6 + rs.getDate("apply_date") + " | " + rs.getString("name") + " | "
-						+ rs.getString("job_title")+"\n";
+				case6 = case6 + 
+						"Application Date: "+rs.getDate("apply_date")+"\n"+ 
+						"Candidate Name: "+ rs.getString("name") +"\n"+
+						"Job Title: "+ rs.getString("job_title") +"\n"+
+						"\n";
 			}
 			conn.close();
 
