@@ -124,10 +124,16 @@ public class RecruitmentManagementSystem {
 				}
 				break;
 			case 8:
-				recruitmentSystem.displayJobsMatchingResults();
+				try {
+					recruitmentSystem.displayJobsMatchingResults();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case 9:
 				quit = true;
+				System.out.println("Quited");
 				break;
 			default:
 				System.out.println("Invalid option. Try again.");

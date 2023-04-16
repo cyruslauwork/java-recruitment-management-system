@@ -293,7 +293,12 @@ public class main {
 		btnCase8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
-				rms.displayJobsMatchingResults();
+				try {
+					rms.displayJobsMatchingResults();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				textArea.setText(rms.case8);
 				rms.case2 = "";
 				
