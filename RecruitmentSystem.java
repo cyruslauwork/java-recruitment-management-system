@@ -210,12 +210,12 @@ public class RecruitmentSystem {
 		try {
 			String sql =
 					"SELECT Candidates.name, Candidates.skills, JobDescriptions.job_title, employers.name FROM Candidates inner JOIN JobDescriptions ON "+
-							"(INSTR(JobDescriptions.job_description, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_title, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_responsibilities, Candidates.skills)>0 "+
-							"OR INSTR(JobDescriptions.job_requirements, Candidates.skills)>0)"+
-							"left join employers on employers .id = JobDescriptions .employer_id "+
-							" order by Candidates.name";
+							"(INSTR(JobDescriptions.job_description, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_title, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_responsibilities, Candidates.skills) > 0 " +
+							"OR INSTR(JobDescriptions.job_requirements, Candidates.skills) > 0) " +
+							"left join Employers on Employers.id = JobDescriptions.employer_id " +
+							"order by Candidates.name";
 			Connection conn = DatabaseConnector.getConnection();
 			Statement stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(sql);
