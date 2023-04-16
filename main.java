@@ -213,8 +213,8 @@ public class main {
 		frame.getContentPane().add(case6key);
 		case6key.setVisible(false);
 				
-		JLabel lblSearchCriterion2 = new JLabel("Candidate ID / Name:");
-		lblSearchCriterion2.setBounds(10, 445, 120, 15);
+		JLabel lblSearchCriterion2 = new JLabel("Applicant ID:");
+		lblSearchCriterion2.setBounds(10, 445, 93, 15);
 		frame.getContentPane().add(lblSearchCriterion2);
 		lblSearchCriterion2.setVisible(false);
 		

@@ -3,10 +3,10 @@ package rms;
 import java.sql.*;
 import java.util.*;
 
-//LAU Ka Pui s226064
-//Poon Tsz Ying s198137
-//KWOK Yee Man	s216748
-//LI KAM KI s225380
+// LAU Ka Pui s226064
+// Poon Tsz Ying s198137
+// KWOK Yee Man	s216748
+// LI KAM KI s225380
 
 public class RecruitmentManagementSystem {
 	public static void main(String[] args) {
@@ -103,10 +103,10 @@ public class RecruitmentManagementSystem {
 			}
                 break;
 			case 6:
-				System.out.println("Enter candidate ID / Name:");
-				String candidateKey = scanner.nextLine();
+				System.out.println("Enter candidate ID:");
+				int applicantId = scanner.nextInt();
 				try {
-					recruitmentSystem.getJobApplicationHistory(String.valueOf(candidateKey));
+					recruitmentSystem.getJobApplicationHistory(String.valueOf(applicantId));
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -128,6 +128,7 @@ public class RecruitmentManagementSystem {
 				break;
 			case 9:
 				quit = true;
+				System.out.println("Quited");
 				break;
 			default:
 				System.out.println("Invalid option. Try again.");
