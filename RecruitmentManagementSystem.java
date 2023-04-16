@@ -3,10 +3,10 @@ package rms;
 import java.sql.*;
 import java.util.*;
 
-//LAU Ka Pui s226064
-//Poon Tsz Ying s198137
-//KWOK Yee Man	s216748
-//LI KAM KI s225380
+// LAU Ka Pui s226064
+// Poon Tsz Ying s198137
+// KWOK Yee Man	s216748
+// LI KAM KI s225380
 
 public class RecruitmentManagementSystem {
 	public static void main(String[] args) {
